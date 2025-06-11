@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f3f4f6;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+            font-family: Barlow, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        .card {
+            background-color: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-radius: 20px;
+        }
+        .header-section {
+            position: relative;
+            overflow: hidden;
+            height: 459px;
+            width: 100%;
+            background: linear-gradient(to right, #FEE83F 0%, #FEE83F 50%, rgba(254, 232, 63, 0.3) 80%, transparent 100%);
+        }
+        .logo {
+            position: absolute;
+            width: 38.98px;
+            height: 31px;
+            top: 22px;
+            left: 35px;
+            z-index: 10;
+        }
+        .logo img {
+            width: 100%;
+            height: 100%;
+        }
+        .text-content {
+            position: absolute;
+            width: 272px;
+            height: 301px;
+            top: 98px;
+            left: 35px;
+            gap: 17px;
+            display: flex;
+            flex-direction: column;
+            z-index: 2;
+        }
+        .main-heading {
+            font-family: Barlow;
+            font-weight: 800;
+            font-size: 30px;
+            line-height: 32px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            width: 268px;
+            height: 105px;
+            color: #101010;
+        }
+        .main-text {
+            font-family: Barlow;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 25px;
+            letter-spacing: 0.05em;
+            width: 272px;
+            height: 175px;
+            color: #101010;
+        }
+        .video-image {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 55%;
+            height: auto;
+            overflow: hidden;
+        }
+        .video-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .offer-section {
+            background-color: white;
+            padding: 2rem;
+            position: relative;
+
+        }
+        .offer-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .phone-image-container {
+            position: relative;
+            flex: 1;
+            max-width: 529px;
+        }
+        .phone-image {
+            width: 100%;
+            height: 284px;
+            border-radius: 370px;
+            border: 3px solid #FEE83F;
+            overflow: hidden;
+        }
+        .phone-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .offer-details {
+            flex: 1;
+            text-align: left;
+            width: 523px;
+            height: 407.59px;
+            gap: 23px;
+        }
+        .offer-heading {
+            color: #101010;
+            font-family: Barlow;
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 25px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .offer-subheading {
+            color: #101010;
+            font-family: Barlow;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 25px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .offer-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        .offer-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            color: #101010;
+            font-family: Barlow;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 25px;
+            letter-spacing: 0.05em;
+        }
+        .offer-list li::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background-color: black;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+        .button-group {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .claim-button {
+            background-color: #FEE83F;
+            width: 176.82px;
+            height: 28.88px;
+            border-radius: 14.44px;
+            border: 0.35px solid black;
+            font-family: Barlow;
+            font-weight: 400;
+            font-size: 14.09px;
+            line-height: 28.18px;
+            letter-spacing: 0.05em;
+            text-align: center;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .arrow-button {
+            width: 28.88px;
+            height: 28.88px;
+            border-radius: 50%;
+            border: 0.35px solid black;
+            background-color: #FEE83F;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .disclaimer {
+            margin-top: 1rem;
+            font-family: Barlow;
+            font-weight: 400;
+            font-size: 10px;
+            line-height: 25px;
+            letter-spacing: 0.05em;
+            width: 232px;
+            height: 25px;
+            color: #666666;
+        }
+        .green-section {
+            width: 660px;
+            height: 87px;
+            margin-left: -30px;
+            border-radius: 20px;
+            background-color: #8FED4A;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1rem;
+        }
+        .green-heading {
+            width: 601px;
+            height: 40px;
+            color: #101010;
+            font-family: Barlow;
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 25px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .included-section,
+        .why-choose-section {
+            padding: 3rem 2rem;
+            background-color: white;
+            border-bottom: 1px solid #E5E7EB;
+        }
+        .section-heading {
+            font-family: Barlow;
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 25px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #101010;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .included-item {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #F9FAFB;
+            border-radius: 12px;
+            transition: transform 0.2s ease;
+        }
+        .included-item:hover {
+            transform: translateY(-5px);
+        }
+        .included-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1rem;
+            background-color: #FEE83F;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .included-icon img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+        .included-item h3 {
+            font-family: Barlow;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 25px;
+            color: #101010;
+            margin-bottom: 0.5rem;
+        }
+        .included-item p {
+            font-family: Barlow;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 22px;
+            color: #666666;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background-color: #F9FAFB;
+            border-radius: 12px;
+            transition: transform 0.2s ease;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        .feature-icon {
+            width: 32px;
+            height: 32px;
+            background-color: #FEE83F;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            font-size: 18px;
+        }
+        .feature-content h3 {
+            font-family: Barlow;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 25px;
+            color: #101010;
+            margin-bottom: 0.5rem;
+        }
+        .feature-content p {
+            font-family: Barlow;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 22px;
+            color: #666666;
+        }
+        .footer-section {
+            background-color: #F9FAFB;
+            padding: 3rem 2rem;
+            border-top: 1px solid #E5E7EB;
+        }
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .footer-logo {
+            width: 38.98px;
+            height: 31px;
+            margin: 0 auto 2rem;
+        }
+        .footer-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-link {
+            font-family: Barlow;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            color: #4B5563;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .footer-link:hover {
+            color: #101010;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .social-link {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.2s ease;
+        }
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+        .social-link img {
+            width: 16px;
+            height: 16px;
+            object-fit: contain;
+        }
+        .footer-copyright {
+            font-family: Barlow;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+            color: #6B7280;
+        }
+        @media (max-width: 768px) {
+            .included-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .included-section,
+            .why-choose-section {
+                padding: 2rem 1rem;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .footer-section {
+                padding: 2rem 1rem;
+            }
+            .offer-content {
+                flex-direction: column;
+            }
+            .phone-image-container {
+                max-width: 100%;
+            }
+            .offer-details {
+                width: 100%;
+            }
+            .green-section {
+                width: 100%;
+                margin-left: 0;
+            }
+            .green-heading {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="newsletter-container">
+        <div class="card">
+            <!-- Header Section -->
+            <div class="header-section">
+                <div class="logo">
+                    <img src="vector-logo.png" alt="Logo">
+                </div>
+                
+                <div class="text-content">
+                    <h1 class="main-heading">
+                        SOCIAL VIDEO<br>
+                        FOR ONLY $999/<br>
+                        MONTH
+                    </h1>
+                    <p class="main-text">
+                        Video has become essential for every business, big, small, new, or established. It's how consumers
+                        engage with your brand, it's how they share information about your products and services.
+                    </p>
+                </div>
+                <div class="video-image">
+                    <img src="video-production.png" alt="Video production setup with woman filming content">
+                </div>
+                <style>
+                    @media screen and (max-width: 768px) {
+                        .video-image {
+                            display: none;
+                        }
+                        .header-section {
+                            background: linear-gradient(to right, #FEE83F 0%, #FBF8EF 100%);
+                        }
+                    }
+                </style>
+            </div>
+
+            <!-- Limited Time Offer Section -->
+            <div class="offer-section">
+                <div class="offer-content">
+                    <div class="phone-image-container">
+                        <div class="phone-image">
+                            <img src="tiktok-phone.png" alt="TikTok on mobile phone">
+                        </div>
+                    </div>
+                    <div class="offer-details">
+                        <h2 class="offer-heading">FOR A LIMITED TIME ONLY</h2>
+                        <p class="offer-subheading">GET 3 MONTHS OF SOCIAL VIDEO FOR ONLY $999/MONTH*.</p>
+                        <ul class="offer-list">
+                            <li>Content strategy</li>
+                            <li>Idea development</li>
+                            <li>Production and editing</li>
+                            <li>One shoot/month</li>
+                            <li>Social captions and posting</li>
+                        </ul>
+                        <div class="button-group">
+                            <button class="claim-button">CLAIM DEAL</button>
+                            <button class="arrow-button">→</button>
+                        </div>
+                        <p class="disclaimer">*Regularly $1,500/month for a 6 month contract.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Green Section -->
+            <div class="green-section" style="
+              width: 100%;
+              max-width: 660px;
+              height: auto;
+              min-height: 87px;
+              margin: 0 auto;
+              border-radius: 20px;
+              background-color: #8FED4A;
+              position: relative;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 20px 0;
+              overflow: hidden;
+            ">
+              <div class="marquee-container" style="
+                width: 100%;
+                overflow: hidden;
+                white-space: nowrap;
+              ">
+                <div class="marquee" style="
+                  display: inline-block;
+                  animation: marquee 30s linear infinite;
+                  animation-delay: 2s;
+                ">
+                  <h2 style="
+                    color: #101010;
+                    font-family: Barlow, sans-serif;
+                    font-weight: 500;
+                    font-size: clamp(18px, 4vw, 25px);
+                    line-height: 1.6;
+                    letter-spacing: 0.05em;
+                    text-align: center;
+                    text-transform: uppercase;
+                    position: relative;
+                    z-index: 10;
+                    padding: 0 20px;
+                    margin: 0;
+                    margin-right: 20px;
+                    display: inline-block;
+                  ">
+                    HAVE THE PRODUCTION SKILLS TO PAY THE BILLS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HAVE THE PRODUCTION SKILLS TO PAY THE BILLS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HAVE THE PRODUCTION SKILLS TO PAY THE BILLS
+                  </h2>
+                </div>
+              </div>
+            </div>
+
+            <style>
+              @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-100%); }
+              }
+
+              @media screen and (max-width: 480px) {
+                .green-section {
+                  width: 100%;
+                  margin: 0 auto;
+                }
+              }
+
+              @media screen and (max-width: 320px) {
+                .green-section {
+                  width: 100%;
+                  padding: 15px 0;
+                }
+              }
+            </style>
+
+            <!-- What's Included Section -->
+            <!-- TV Commercials Section -->
+          <div style="background-color: white; padding: 2rem;">
+            <div style="display: flex; flex-direction: row; align-items: center; gap: 1.5rem;">
+              <div style="flex: 1;">
+                <h3 style="
+                  color: #101010;
+                  font-family: Barlow, sans-serif;
+                  font-weight: 500;
+                  font-size: 28.72px;
+                  line-height: 30.77px;
+                  letter-spacing: 2%;
+                  text-transform: uppercase;
+                  margin-bottom: 1rem;
+                ">
+                  TV
+                  <br />
+                  COMMERCIALS
+                </h3>
+                <p style="
+                  color: #101010;
+                  font-family: Barlow, sans-serif;
+                  font-weight: 400;
+                  font-size: 18px;
+                  line-height: 25px;
+                  letter-spacing: 5%;
+                  margin-bottom: 1.5rem;
+                ">
+                  Get high quality TV commercials for Connected TV, YouTube, and more.
+                </p>
+                <div style="display: flex; align-items: center;">
+                  <button style="
+                    width: 131px;
+                    height: 29px;
+                    background-color: #FEE83F;
+                    border-radius: 14.44px;
+                    border: 0.35px solid black;
+                    font-family: Barlow, sans-serif;
+                    font-weight: 400;
+                    font-size: 14.09px;
+                    line-height: 28.18px;
+                    letter-spacing: 5%;
+                    text-align: center;
+                    text-transform: uppercase;
+                    color: black;
+                    cursor: pointer;
+                  ">
+                    LEARN MORE
+                  </button>
+                  <button style="
+                    width: 28.88px;
+                    height: 28.88px;
+                    border-radius: 50%;
+                    border: 0.35px solid black;
+                    background-color: #FEE83F;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                  ">
+                    <span style="color: black; font-weight: bold;">→</span>
+                  </button>
+                </div>
+              </div>
+              <div style="flex: 1; max-width: 470px;">
+                <div style="
+                  width: 100%;
+                  height: 283px;
+                  border-radius: 370px;
+                  border: 3px solid #FEE83F;
+                  overflow: hidden;
+                  margin: 0 auto;
+                ">
+                  <img
+                    src="film-clapperboard.png"
+                    alt="Film clapperboard on set"
+                    style="width: 100%; height: 100%; object-fit: cover;"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <style>
+            @media screen and (max-width: 480px) {
+              div[style*="display: flex; flex-direction: row"] {
+                flex-direction: column !important;
+              }
+              
+              div[style*="flex: 1; max-width: 470px"] {
+                max-width: 100% !important;
+                margin-top: 2rem !important;
+              }
+              
+              div[style*="width: 100%; height: 283px"] {
+                height: 200px !important;
+              }
+            }
+
+            @media screen and (max-width: 320px) {
+              div[style*="padding: 2rem"] {
+                padding: 1rem !important;
+              }
+              
+              h3[style*="font-size: 28.72px"] {
+                font-size: 24px !important;
+                line-height: 26px !important;
+              }
+              
+              p[style*="font-size: 18px"] {
+                font-size: 16px !important;
+                line-height: 22px !important;
+              }
+              
+              div[style*="width: 100%; height: 283px"] {
+                height: 180px !important;
+              }
+            }
+          </style>
+
+
+        <!-- Brand Story Films Section -->
+        <div style="background-color: white; padding: 2rem;">
+            <div style="display: flex; flex-direction: row; align-items: center; gap: 1.5rem;">
+                <div style="flex: 1; max-width: 470px;" class="image-container">
+                    <div style="width: 100%; overflow: hidden; margin: 0 auto; max-width: 470px; height: 283px; border-radius: 370px; border: 3px solid #FEE83F;">
+                        <img
+                            src="brand-story-spiritual.png"
+                            alt="Woman in meditation pose for spiritual wellness brand story"
+                            style="width: 100%; height: 100%; object-fit: cover;"
+                        />
+                    </div>
+                </div>
+                <div style="flex: 1;" class="text-container">
+                    <h3 style="color: #101010; font-family: Barlow, sans-serif; font-weight:500; font-size: 28.72px; line-height: 30.77px; letter-spacing: 2%; text-transform: uppercase; margin-bottom: 1rem;">
+                        BRAND STORY
+                        <br />
+                        FILMS
+                    </h3>
+                    <p style="color: #101010; font-family: Barlow, sans-serif; font-weight: 400; font-size: 18px; line-height: 25px; letter-spacing: 0.05em; margin-bottom: 1.5rem;">
+                        Tell your brand story with a professionally written and produced film.
+                    </p>
+                    <div style="display: flex; align-items: center;">
+                        <button style="width: 131px; height: 29px; background-color: #FEE83F; border-radius: 14.44px; border: 0.35px solid black; font-family: Barlow, sans-serif; font-weight: 400; font-size: 14.09px; line-height: 28.18px; letter-spacing: 0.05em; text-align: center; text-transform: uppercase; color: black; cursor: pointer;">
+                            LEARN MORE
+                        </button>
+                        <button style="width: 28.88px; height: 28.88px; border-radius: 50%; border: 0.35px solid black; background-color: #FEE83F; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                            <span style="color: black; font-weight: bold;">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            @media screen and (max-width: 480px) {
+                div[style*="display: flex; flex-direction: row"] {
+                    flex-direction: column !important;
+                }
+                
+                .text-container {
+                    order: -1 !important;
+                }
+                
+                .image-container {
+                    order: 1 !important;
+                    max-width: 100% !important;
+                    margin-top: 2rem !important;
+                }
+                
+                div[style*="width: 100%; height: 283px"] {
+                    height: 200px !important;
+                }
+            }
+
+            @media screen and (max-width: 320px) {
+                div[style*="padding: 2rem"] {
+                    padding: 1rem !important;
+                }
+                
+                h3[style*="font-size: 24px"] {
+                    font-size: 20px !important;
+                    line-height: 22px !important;
+                }
+                
+                p[style*="font-size: 18px"] {
+                    font-size: 16px !important;
+                    line-height: 22px !important;
+                }
+                
+                div[style*="width: 100%; height: 283px"] {
+                    height: 180px !important;
+                }
+            }
+        </style>
+
+
+
+          <!-- Product Photography Section -->
+          <div style="background-color: white; padding: 2rem;">
+            <div style="display: flex; flex-direction: row; align-items: center; gap: 1.5rem;">
+              <div style="flex: 1;">
+                <h3 style="
+                  color: #101010;
+                  font-family: Barlow, sans-serif;
+                  font-weight: 500;
+                  font-size: 28.72px;
+                  line-height: 30.77px;
+                  letter-spacing: 2%;
+                  text-transform: uppercase;
+                  margin-bottom: 1rem;
+                ">
+                  PRODUCT
+                  <br />
+                  PHOTOGRAPHY
+                </h3>
+                <p style="
+                  color: #101010;
+                  font-family: Barlow, sans-serif;
+                  font-weight: 400;
+                  font-size: 18px;
+                  line-height: 25px;
+                  letter-spacing: 5%;
+                  margin-bottom: 1.5rem;
+                ">
+                  Sell more products with beautifully lit and shot hi-res photos.
+                </p>
+                <div style="display: flex; align-items: center;">
+                  <button style="
+                    width: 131px;
+                    height: 29px;
+                    background-color: #FEE83F;
+                    border-radius: 14.44px;
+                    border: 0.35px solid black;
+                    font-family: Barlow, sans-serif;
+                    font-weight: 400;
+                    font-size: 14.09px;
+                    line-height: 28.18px;
+                    letter-spacing: 5%;
+                    text-align: center;
+                    text-transform: uppercase;
+                    color: black;
+                    cursor: pointer;
+                  ">
+                    LEARN MORE
+                  </button>
+                  <button style="
+                    width: 28.88px;
+                    height: 28.88px;
+                    border-radius: 50%;
+                    border: 0.35px solid black;
+                    background-color: #FEE83F;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                  ">
+                    <span style="color: black; font-weight: bold;">→</span>
+                  </button>
+                </div>
+              </div>
+              <div style="flex: 1; max-width: 470px;">
+                <div style="
+                  width: 100%;
+                  height: 283px;
+                  border-radius: 370px;
+                  border: 3px solid #FEE83F;
+                  overflow: hidden;
+                  margin: 0 auto;
+                ">
+                  <img
+                    src="product-photographer.jpeg"
+                    alt="Film clapperboard on set"
+                    style="width: 100%; height: 100%; object-fit: cover;"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <style>
+            @media screen and (max-width: 480px) {
+              div[style*="display: flex; flex-direction: row"] {
+                flex-direction: column !important;
+              }
+              
+              div[style*="flex: 1; max-width: 470px"] {
+                max-width: 100% !important;
+                margin-top: 2rem !important;
+              }
+              
+              div[style*="width: 100%; height: 283px"] {
+                height: 200px !important;
+              }
+            }
+
+            @media screen and (max-width: 320px) {
+              div[style*="padding: 2rem"] {
+                padding: 1rem !important;
+              }
+              
+              h3[style*="font-size: 28.72px"] {
+                font-size: 24px !important;
+                line-height: 26px !important;
+              }
+              
+              p[style*="font-size: 18px"] {
+                font-size: 16px !important;
+                line-height: 22px !important;
+              }
+              
+              div[style*="width: 100%; height: 283px"] {
+                height: 180px !important;
+              }
+            }
+          </style>
+
+            <!-- Footer Section -->
+
+            <div class="contact-section" style="
+                text-align: center;
+                padding: 48px 24px;
+                background: linear-gradient(to top, #FEE83F 0%, #FBF8EF 85%, #FFFFFF 95%);
+                width: 100%;
+                max-width: 600px;
+                height: auto;
+                min-height: 293px;
+                margin: 0 auto;
+                position: relative;
+                top: 0;
+            ">
+                <h2 class="contact-heading" style="
+                    color: #101010;
+                    font-family: Barlow, sans-serif;
+                    font-weight: 900;
+                    font-size: 50px;
+                    line-height: 1.2;
+                    letter-spacing: 0.02em;
+                    text-align: center;
+                    text-transform: uppercase;
+                    margin: 0 auto;
+                    max-width: 100%;
+                    margin-top: 5%;
+                ">
+                    <a href="mailto:HELLO@COLAB.COM" style="color: #101010; text-decoration: none;">HELLO@COLAB.COM</a>
+                    <br>
+                    <a href="tel:8188504212" style="color: #101010; text-decoration: none;">818.850.4212</a>
+                </h2>
+                <p class="contact-address" style="
+                    color: #101010;
+                    font-family: Barlow, sans-serif;
+                    font-weight: 400;
+                    font-size: 15px;
+                    line-height: 1.4;
+                    letter-spacing: 0.05em;
+                    text-align: center;
+                    margin: 0 auto;
+                    margin-top: 20px;
+                    max-width: 100%;
+                ">
+                    21300 VICTORY BLVD #860
+                    <br>
+                    WOODLAND HILLS, CA 91367
+                </p>
+            </div>
+
+            <style>
+                @media screen and (max-width: 480px) {
+                    .contact-section {
+                        padding: 32px 16px;
+                        min-height: 250px;
+                    }
+                    .contact-heading {
+                        font-size: 36px !important;
+                    }
+                    .contact-heading a {
+                        font-size: 32px !important;
+                        white-space: nowrap;
+                    }
+                }
+                @media screen and (max-width: 320px) {
+                    .contact-section {
+                        padding: 24px 12px;
+                        min-height: 220px;
+                    }
+                    .contact-heading {
+                        font-size: 28px !important;
+                    }
+                    .contact-heading a {
+                        font-size: 24px !important;
+                        white-space: nowrap;
+                    }
+                    .contact-address {
+                        font-size: 13px !important;
+                    }
+                }
+            </style>
+    </div>
+</body>
+</html> 
